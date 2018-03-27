@@ -1,0 +1,41 @@
+<html ng-app="SQL Explorer">
+  <head>
+    <title>Answers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- styles -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <h1>Search</h1>
+    <form method="POST" action="/">
+      {% if word==None %}
+      <input type="text" name="word">
+      {% else %}
+      <input type="text" name="word" value="{{word}}">
+      {% endif %}
+      <input type="submit" value="Search">
+    </form>
+
+    <h1>Answers</h1>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Answers</th>
+      <th scope="col">Age</th>
+      <th scope="col">Idée Générale</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for answer in answers%}
+        <tr>
+          <th scope="row">{{answer.respid}}</th>
+          <th>{{answer.li}}</th>
+          <th>{{answer.age}}</th>
+          <th>{{answer.rec_li_2}}</th>
+        </tr>
+        {% endfor %}
+    </table>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </body>
+</html>
