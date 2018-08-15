@@ -8,34 +8,32 @@
   <body>
     <h1>Search</h1>
     <form method="GET" action="/">
-      {% if word==None %}
-      <input type="text" name="word">
+      <h2>Product</h2>
+      {% if products==None %}
+      <input type="text" name="products">
       {% else %}
-      <input type="text" name="word" value="{{word}}">
+      <input type="text" name="products" value="{{products}}">
       {% endif %}
+      <h2>Category</h2>
+      {% if products==None %}
+      <input type="text" name="categories">
+      {% else %}
+      <input type="text" name="categories" value="{{categories}}">
+      {% endif %}
+      <br/>
+      <h2>Platform</h2>
+      {% if products==None %}
+      <input type="text" name="platforms">
+      {% else %}
+      <input type="text" name="platforms" value="{{platforms}}">
+      {% endif %}
+      <br/>
       <input type="submit" value="Search" type="GET">
     </form>
-
-    <h1>Answers</h1>
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Answers</th>
-      <th scope="col">Age</th>
-      <th scope="col">Idée Générale</th>
-    </tr>
-  </thead>
-  <tbody>
-      {% for answer in answers%}
-        <tr>
-          <th scope="row">{{answer.respid}}</th>
-          <th>{{answer.li}}</th>
-          <th>{{answer.age}}</th>
-          <th>{{answer.rec_li_2}}</th>
-        </tr>
-        {% endfor %}
-    </table>
+    {% for table in tables%}
+      {{table}}
+      <hr/>
+    {% endfor %}
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   </body>
 </html>
